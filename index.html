@@ -10,11 +10,11 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         :root {
-            --primary-color: #49d644;
+            --primary-color: #19e412;
             --secondary-color: #4ECDC4;
             --dark-color: #2E2E2E;
-            --light-color: #FFFFFF;
-            --accent-color: #FFD166;
+            --light-color: #c4c4c4;
+            --accent-color: #a8a8a8;
             --whatsapp-color: #25D366;
             --instagram-color:  #E1306C;
             --background-gradient: linear-gradient(135deg, #FF6B6B 0%, #FF8E53 100%);
@@ -95,37 +95,51 @@
 
         /* Header */
         .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            color: white;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            position: relative;
-            overflow: hidden;
-        }
+    background: url('https://images.unsplash.com/photo-1568901346375-23c9450c58cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow: hidden;
+}
 
-        .hero::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            background: linear-gradient(transparent, var(--light-color));
-            z-index: 1;
-        }
+/* Adiciona um overlay escuro para melhorar a legibilidade do texto */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* Overlay escuro com 50% de opacidade */
+    z-index: 1; /* Garante que a sobreposição fique abaixo do conteúdo */
+}
 
-        .hero .container {
-            position: relative;
-            z-index: 2;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
+.hero::after {
+    /* Mantenha o gradiente original, mas ajuste o z-index para ficar acima do overlay,
+       criando um efeito de transição suave para a próxima seção */
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: linear-gradient(transparent, var(--light-color));
+    z-index: 2; /* Garante que o gradiente fique acima da sobreposição */
+}
+
+.hero .container {
+    position: relative;
+    z-index: 3; /* Garante que o conteúdo permaneça no topo */
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
 
         .logo {
             text-align: center;
@@ -424,7 +438,7 @@
         .contato-info {
             display: flex;
             justify-content: center;
-            gap: 4rem;
+            gap: 3rem;
             margin-bottom: 4rem;
             flex-wrap: wrap;
         }
@@ -432,7 +446,7 @@
         .info-item {
             text-align: center;
             padding: 2.5rem;
-            background: white;
+            background: rgb(255, 253, 253);
             border-radius: 15px;
             box-shadow: 0 15px 40px rgba(0, 0, 0, 0.08);
             transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -670,11 +684,11 @@
 
         .dev-credits {
             font-size: 0.8rem;
-            color: rgba(255,255,255,0.4);
+            color: var(--light-color)
         }
 
         .dev-credits a {
-            color: var(--accent-color);
+            color: var(--light-color);
             text-decoration: none;
         }
 
@@ -941,43 +955,43 @@
         </div>
     </header>
 
-    <section id="produtos" class="produtos">
-        <div class="container">
-            <h2 class="section-title">Nossos Produtos</h2>
-            <div class="produtos-grid">
-                <div class="produto-card">
-                    <i class="fas fa-bread-slice"></i>
-                    <h3>Pães de Hot Dog</h3>
-                    <p>Os melhores pães para seu cachorro-quente</p>
-                </div>
-                <div class="produto-card">
-                    <i class="fas fa-cheese"></i>
-                    <h3>Queijos</h3>
-                    <p>Variedade de queijos para todos os gostos</p>
-                </div>
-                <div class="produto-card">
-                    <i class="fas fa-hotdog"></i>
-                    <h3>Salsichas</h3>
-                    <p>Salsichas premium para seu lanche</p>
-                </div>
-                <div class="produto-card">
-                    <i class="fas fa-bacon"></i>
-                    <h3>Bacon</h3>
-                    <p>Bacon de qualidade para dar sabor</p>
-                </div>
-                <div class="produto-card">
-                    <i class="fas fa-drumstick-bite"></i>
-                    <h3>Calabresa</h3>
-                    <p>Calabresa selecionada para suas receitas</p>
-                </div>
-                <div class="produto-card">
-                    <i class="fas fa-ellipsis-h"></i>
-                    <h3>E muito mais!</h3>
-                    <p>Tudo que você precisa para seu negócio</p>
+    <section id="produtos">
+            <div class="container">
+                <h2 class="section-title">Nossos Produtos</h2>
+                <div class="produtos-grid">
+                    <div class="produto-card">
+                        <i class="fas fa-bread-slice"></i>
+                        <h3>Pães</h3>
+                        <p>Pães macios e frescos, ideais para hot dogs e sanduíches.</p>
+                    </div>
+                    <div class="produto-card">
+                        <i class="fas fa-cheese"></i>
+                        <h3>Queijos</h3>
+                        <p>Uma variedade de queijos de alta qualidade para sua receita.</p>
+                    </div>
+                    <div class="produto-card">
+                        <i class="fas fa-hotdog"></i>
+                        <h3>Salsichas</h3>
+                        <p>Salsichas premium, suculentas e saborosas para o seu dog.</p>
+                    </div>
+                    <div class="produto-card">
+                        <i class="fas fa-bacon"></i>
+                        <h3>Bacon e Embutidos</h3>
+                        <p>Bacon, calabresa e outros embutidos para dar um toque especial.</p>
+                    </div>
+                    <div class="produto-card">
+                        <i class="fas fa-pepper-hot"></i>
+                        <h3>Molhos e Condimentos</h3>
+                        <p>Molhos especiais para complementar o sabor dos seus pratos.</p>
+                    </div>
+                    <div class="produto-card">
+                        <i class="fas fa-box"></i>
+                        <h3>Kits para Lanchonetes</h3>
+                        <p>Tudo o que você precisa em kits personalizados para seu negócio.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
     <section id="sobre" class="sobre">
         <div class="container">
